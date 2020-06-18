@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute type="String" name="theString" default="This is defualt String"/>
+    <aura:attribute type="Integer" name="someValue"/>
+    <c:auraPubsub aura:id='pubsub' onready="{!c.handlePubsubReady}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name='destroy' value="{!this}" action="{!c.handleDestroy}"/>
+
+    <lightning:card title="My Aura Sub" iconName="custom:custom30">
+
+    <p>Aura got: {!v.theString}</p>
+        
+    <p>Aura someValue: {!v.someValue}</p>
+
+    </lightning:card>
+
+</aura:component>	
