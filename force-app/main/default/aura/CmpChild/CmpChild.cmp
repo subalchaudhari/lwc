@@ -1,0 +1,7 @@
+<aura:component extends="c:CmpParent">
+	 <aura:attribute name="cdata" type="String" default="Child Info..."/>
+    <div style="font-size:1in;">
+    	{!v.cdata}
+        
+    </div>
+</aura:component>

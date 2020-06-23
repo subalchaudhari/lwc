@@ -1,0 +1,45 @@
+<aura:component >
+    <aura:attribute name="slist" type="list"/>
+	<div style="border:5px ridge blue;padding:5px;">
+     <lightning:layout class="slds-wrap">
+         <lightning:layoutItem size="10">
+         	<div class="slds-align--absolute-center">
+             <strong>Stundents</strong>
+             </div>
+         </lightning:layoutItem>
+         <lightning:layoutItem size="2">
+         	<lightning:buttonMenu iconName="utility:add"
+                                  alternativeText="Student Menu"
+                                  menuAlignment="right"
+                                  onselect="{!c.choosemenu}">
+                <lightning:menuItem label="New" value="1"/>
+                <lightning:menuItem label="Edit" value="2"/>
+                <lightning:menuItem label="Search" value="3"/>
+                <lightning:menuItem label="Display" value="4"/>
+             </lightning:buttonMenu>
+         </lightning:layoutItem>
+     </lightning:layout>
+    </div>
+    <br/>
+    <div style="background:orange" aura:id="dform">
+        <c:StudentData studentlist="{!v.slist}"/>
+        <table class="slds-table--bordered">
+           <thead>
+           		<tr>
+               		<th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Name</th>
+                </tr> 
+           </thead>
+            <tbody>
+            	<aura:iteration items="{!v.slist}" var="s">
+                <tr>
+                	<td>{!s.First_Name__c}</td>
+                    <td>{!s.Last_Name__c}</td>
+                    <td>{!s.Email__c}</td>
+                </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

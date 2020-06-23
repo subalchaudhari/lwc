@@ -1,0 +1,26 @@
+<aura:component controller="CandidateController">
+    <aura:attribute name="ename" type="String"/>
+    <aura:attribute name="elist" type="list"/>
+    <aura:handler name="devent" event="c:DataEvent" action="{!c.showEmp}"/>
+    <c:Search />
+    <div class="slds-align--absolute-center">
+     <table class="slds-table--bordered">
+           <thead>
+           		<tr>
+               		<th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Name</th>
+                </tr> 
+           </thead>
+            <tbody>
+            	<aura:iteration items="{!v.elist}" var="s">
+                <tr>
+                	<td>{!s.First_Name__c}</td>
+                    <td>{!s.Last_Name__c}</td>
+                    <td>{!s.Email__c}</td>
+                </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="boat" type="Boat__c"/>
+    <aura:attribute name="boatReview" type="BoatReview__c" access="private"/>
+    <aura:attribute name="recordError" type="String" access="private"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.boatReview.Name}" action="{!c.validateTitle}"/>
+    <aura:registerEvent name="boatReviewAdded" type="c:BoatReviewAdded"/>
+    
+    <force:recordData aura:id="service"
+                      fields="Id,Name,Comment__c,Boat__c,Rating__c"                      
+                      targetFields="{!v.boatReview}"
+                      targetError="{!v.recordError}"
+                      recordUpdated="{!c.onRecordUpdated}"
+                      />
+    
+    <lightning:layout verticalAlign="start" class="slds-wrap" multipleRows="true">
+    	<lightning:layoutItem flexibility="auto" padding="around-small">
+        	<lightning:input name="title" label="Title" value="{!v.boatReview.Name}" required="true"></lightning:input>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small">
+        	<label>Description</label>
+        	<lightning:inputRichText disabledCategories="FORMAT_FONT" value="{!v.boatReview.Comment__c}"/>
+        </lightning:layoutItem><br/>
+        <lightning:layoutItem flexibility="auto" padding="around-small">
+        	<c:FiveStarRating aura:id="FiveStarRating" value="{!v.boatReview.Rating__c}" readonly="false"/>
+        </lightning:layoutItem><br/>
+        <lightning:layoutItem flexibility="auto" padding="around-small">
+            <lightning:button aura:id="btn" iconName="utility:save" label="Submit" variant="brand" onclick="{!c.onSave}" disabled="true"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

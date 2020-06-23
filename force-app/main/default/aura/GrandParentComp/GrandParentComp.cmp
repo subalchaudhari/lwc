@@ -1,0 +1,9 @@
+<aura:component >
+	<aura:attribute name="msg" type="String" />
+    <aura:handler name="devent" event="c:DataEvent" action="{!c.show}"/>
+    <div style="background:crimson;height:600px;width:600px">
+        <c:ParentComp />
+        <br/>
+        <strong>{!v.msg}</strong>
+    </div>
+</aura:component>

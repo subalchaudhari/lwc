@@ -1,0 +1,33 @@
+<aura:component controller="SoundController" 
+                description="Casestudy component"
+                implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:attribute name="msg" type="string" default="Click on Image"
+                    description="custome message to be passed for Image"/>
+    <aura:attribute name="soundlist" type="list"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-align--absolute-center">
+     	<lightning:button variant="destructive" iconName="utility:pin">
+            <strong>Certification Control</strong><br/>
+        	<img src="{!$Resource.pbutton}" 
+              onclick="{!c.play}"
+              onmouseover="{!c.show}" 
+              onmouseout="{!c.hide}"></img>
+        </lightning:button>
+    </div>	
+	<div class="slds-align--absolute-center">
+    	<audio aura:id="atag"  
+               autoplay="autoplay" controls="controls"></audio>
+    </div>
+    <div style="padding-left:100px;padding-right:100px">
+    <lightning:select name="n1" label="Select sound to play" aura:id="plist">
+        <option value="">None</option>
+        <aura:iteration items="{!v.soundlist}" var="s">
+         <option value="{!s.Url__c}">{!s.Name}</option>
+        </aura:iteration>
+      </lightning:select>
+    </div>    
+    <div aura:id="msgtag" class="slds-align--absolute-center slds-hide"
+         style="font-size:40px;color:red">
+        {!v.msg}
+    </div>
+</aura:component>

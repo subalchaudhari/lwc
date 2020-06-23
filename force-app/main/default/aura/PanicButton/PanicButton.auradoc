@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="PanicButton" ref="c:PanicButton" label="Label">
+		Custome component for case study
+	</aura:example>
+</aura:documentation>

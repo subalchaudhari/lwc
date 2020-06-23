@@ -1,0 +1,26 @@
+<apex:page sidebar="true" showHeader="true">
+  <apex:includeLightning />
+    <!-- <apex:slds /> -->
+    <P>
+         Hello from VF.
+    </P>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_2-of-3" id="boatserach">
+           
+        </div>
+        <div class="slds-col slds-size_2-of-3" id="boatdetail">
+            
+        </div>
+    </div>
+  <!-- <script src="/lightning/lightning.out.js"></script> -->
+    <script>
+        
+        $Lightning.use("c:LightningOut",function(){
+            $Lightning.createComponent("c:BoatSearch","","boatserach");
+            // $Lightning.createComponent("c:BoatDetails","","boatdetail"); 
+        });
+    
+    
+    </script>
+    
+</apex:page>

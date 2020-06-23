@@ -1,0 +1,11 @@
+.THIS.div {
+    font-size:30px;
+    color:red;
+    background :lime;
+}
+
+.THIS .div {
+    font-size:40px;
+    color:blue;
+    background :yellow;
+}

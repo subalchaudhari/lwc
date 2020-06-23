@@ -1,0 +1,25 @@
+<aura:component >
+    <aura:attribute name="blist" type="list" default="b1,b2"/>
+	<div style="background:grey;padding:20px" class="slds-align--absolute-center">
+    	<Lightning:buttonGroup >
+        	<lightning:button label="Dial HQ"
+                              variant="brand"
+                              aura:id="b1" 
+                              iconName="utility:call"
+                              onclick="{!c.clickb1}"/>
+            <lightning:button label="Sound Effects"
+                              variant="neutral"
+                              aura:id="b2" 
+                              iconName="utility:announcement"
+                              onclick="{!c.clickb2}"/>
+        </Lightning:buttonGroup>
+    </div>
+    <div class="cardContainer">
+    	<div class="card" aura:id="c1">
+            <c:CallMe />
+        </div>
+        <div class="card card--off" aura:id="c2">
+            <c:PanicButton />
+        </div>
+    </div>
+</aura:component>

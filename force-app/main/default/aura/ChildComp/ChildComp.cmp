@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:attribute name="ename" type="String"/>
+    <aura:registerEvent name="devent" type="c:DataEvent" />
+    <div style="background:yellow;height:200px;width:200px">
+        <lightning:input name="n1" label="Enter Name" value="{!v.ename}"/>
+        <lightning:button label="Send" onclick="{!c.send}"/>
+    </div>
+</aura:component>

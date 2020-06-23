@@ -1,0 +1,25 @@
+<aura:component >
+    <aura:attribute name="pname" type="String" default="noname"/>
+    <aura:attribute name="price" type="Integer" default="0"/>
+    <aura:attribute name="qty" type="Integer" default="0"/>
+    <aura:attribute name="popts" type="List" default="paytm,zeta,netbanking"/>
+    
+    <div class="slds-align--absolute-center"
+         style="border:5px solid red;padding:10px;border-radius:20px;">
+        Item Purchased : {!v.pname}<br/>
+        Unit Price : {!v.price}<br/>
+        Quantity : {!v.qty}<br/>
+        Total cost: {!v.price * v.qty} <br/>
+        <aura:if isTrue="{!v.qty &gt; 10}">
+           <lightning:button label="Please pay GST" variant="brand"/>
+            <aura:set attribute="else">
+            	<strong>!! No Tax !!</strong>
+            </aura:set>
+        </aura:if> 
+        <div>
+        	<aura:iteration items="{!v.popts}" var="p">
+        	<li>{!p}</li>
+        	</aura:iteration>
+        </div>
+    </div>
+</aura:component>

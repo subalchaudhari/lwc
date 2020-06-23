@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <ltng:require scripts="{!$Resource.mysmtp +'/mysmtp.js'}"                 
+                  afterScriptsLoaded="{!c.afterScriptsLoaded}"
+                  />
+</aura:component>

@@ -1,0 +1,54 @@
+<aura:component controller="BoatReviews">
+    <aura:attribute name="boat" type="Boat__c" />
+    <aura:attribute name="boatReviews" type="BoatReview__c[]" access="private"/>
+    
+    <aura:handler name="change" value="{!v.boat}" action="{!c.doInit}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- set up the aura:method for refresh -->
+    <aura:method name="refresh" action="{!c.doInit}" access="public"
+                 description="BoatDetailsController.js invokes refresh whenever boat is updated">
+    </aura:method>
+    
+    <ui:scrollerWrapper class="scrollerSize">
+    <aura:if isTrue="{! !empty(v.boatReviews)}">
+          	<div class="slds-feed">
+  				<ul class="slds-feed__list">
+                    <aura:iteration items="{!v.boatReviews}" var="boatReview">
+    				<li class="slds-feed__item">
+      					<article class="slds-post">
+        					<header class="slds-post__header slds-media">
+          						<div class="slds-media__figure">
+            						<a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
+              							<img alt="{!boatReview.CreatedBy.Name}" src="{!boatReview.CreatedBy.SmallPhotoUrl}" title="{!boatReview.CreatedBy.Name}" />
+            						</a>
+          						</div>
+          						<div class="slds-media__body">
+            						<div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                        <p><a data-userid="{!boatReview.CreatedBy.Id}" title="{!boatReview.CreatedBy.Name}" onclick="{!c.onUserInfoClick}">{!boatReview.CreatedBy.Name}</a>
+                                            — {!boatReview.CreatedBy.CompanyName}</p>
+              						</div>
+                                    <lightning:formattedDateTime value="{!boatReview.LastModifiedDate}"/>
+          						</div>
+       					 </header>
+        <div class="slds-post__content slds-text-longform">
+            <strong>{!boatReview.Name}</strong><br/>
+            <lightning:formattedRichText value="{!boatReview.Comment__c}" />
+        </div>
+        </article>
+     	 </li>
+         <c:FiveStarRating aura:id="FiveStarRating" value="{!boatReview.Rating__c}" readonly="true"/>
+              </aura:iteration>
+                </ul>
+            </div>
+        
+        
+        <aura:set attribute="else">
+            <div class="slds-align--absolute-center">
+        	<strong>No reviews available</strong>
+            </div>
+        </aura:set>
+    
+    </aura:if>
+    </ui:scrollerWrapper>
+</aura:component>

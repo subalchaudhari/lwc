@@ -1,0 +1,26 @@
+<aura:component controller="BoatTypeController" access="global">
+    <aura:attribute name="boatTypeId" type="String"/>
+    <aura:attribute name="blist" type="List"/>
+    <aura:attribute name="shownewButton" type="Boolean" default="false"/>
+    <aura:registerEvent name="formsubmit" type="c:FormSubmit"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<lightning:layout class="slds-wrap" horizontalAlign="center" verticalAlign="end">
+    	<lightning:layoutItem >
+        	<lightning:select name="boatType" label="" value="{!v.boatTypeId}">
+            	<option label="All Types" value=""></option>
+                <aura:iteration items="{!v.blist}" var="b">
+                    <option label="{!b.Name}" value="{!b.Id}"/>
+                </aura:iteration>
+            </lightning:select>
+        </lightning:layoutItem>
+        <lightning:layoutItem >
+            <lightning:button variant="brand" label="Search" onclick="{!c.onFormSubmit}"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem >
+            <aura:if isTrue="{!v.shownewButton}">
+            	<lightning:button label="New"  onclick="{!c.newBoat}"/>
+             </aura:if>
+        </lightning:layoutItem>
+        
+    </lightning:layout>
+</aura:component>

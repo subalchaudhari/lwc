@@ -1,0 +1,28 @@
+<apex:page sidebar="fasle" standardController="Account" recordSetVar="rlist">
+    <apex:form >
+    <apex:pageBlock title="Account Info">
+    	<apex:pageBlockTable value="{!rlist}" var="r">
+          <apex:column value="{!r.Name}"/>                                          
+          <apex:column value="{!r.AnnualRevenue}"/>
+          <apex:column value="{!r.BillingCity}"/>
+        </apex:pageBlockTable>
+        <apex:inputText label="Enter Panic Message" id="t1" size="40"/>
+        <apex:outputPanel styleClass="btn" onclick="showcomp('{!$Component.t1}')">
+         Create Panic Lightning Component
+        </apex:outputPanel>
+        <div id="lbtn">
+            
+        </div>
+    </apex:pageBlock>
+        </apex:form>
+    <script src="/lightning/lightning.out.js"></script>
+    <script>
+        function showcomp(t1){
+        var mtext= document.getElementById(t1).value;
+        
+        $Lightning.use("c:VfpageApp",function(){
+        $Lightning.createComponent("c:PanicButton",{"msg":mtext},"lbtn");    
+        });
+        }
+        </script>
+</apex:page>

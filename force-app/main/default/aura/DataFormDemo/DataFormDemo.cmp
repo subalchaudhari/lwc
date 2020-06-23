@@ -1,0 +1,33 @@
+<aura:component >
+    <aura:attribute name="cname" type="String"/>
+    <aura:handler name="change" value="{!v.cname}" action="{!c.validateName}"/>
+	<div style="border:10px solid red;
+                height:600px;width:600px;
+                border-radius:40px;
+                padding:40px;
+                margin:auto;">
+        <lightning:input name="n1" label="Customer Name"
+                         value="{!v.cname}"
+                         required="true"
+                         minlength="2"
+                         maxlength="20"
+                         pattern="[A-Za-z]*"
+                         placeholder="Enter Name"
+                         messageWhenValueMissing="Please provide customer name"
+                         messageWhenBadInput="customer name can not be less than2"
+                         messageWhenTooLong="Customer name is too long"
+                         messageWhenPatternMismatch="customer name should not contain wild cards"/>
+        <lightning:input name="n2" label="Loan Amount" type="number" formatter="currency"
+                         min="0"
+                         max="100000"
+                         step="5000"
+                         messageWhenRangeUnderflow="can not give loan leass than 1k"
+                         messageWhenRangeOverflow="Too much loan amount"
+                         messageWhenStepMismatch="random number..please provide correct"
+                         />
+        <br/><br/>
+    <div class="slds-align--absolute-center">
+        <lightning:button aura:id="btn" label="Apply for loan" variant="brand" disabled="true"/>
+    </div>
+    </div>
+</aura:component>

@@ -1,0 +1,11 @@
+<aura:component >
+    <aura:attribute name="ename" type="String" default="Standard Event"/>
+    <div style="font-size:1in;background:orange" onclick="{!c.changeText}">
+    	{!v.ename}        
+    </div><br/>
+    <div aura:id="dtag" style="font-size:1in;background:aqua;height:300px" onclick="{!c.display}">
+    
+    </div><br/>
+    <lightning:button aura:id="btn" label="This is SFDC Lightning Button"
+                      variant="brand" onclick="{!c.changeButton}"/>
+</aura:component>

@@ -1,0 +1,19 @@
+<aura:component controller="CandidateController">
+    <aura:attribute name="fname" type="String"/>
+    <aura:attribute name="candiadateobj" type="Sobject"/>
+    <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.showsavemesage}"/>
+    
+    <aura:handler event="aura:waiting" action="{!c.show}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hide}"/>
+    
+    <lightning:input name="n1" label="Enter First Name" value="{!v.fname}"/>
+    <lightning:button label="Display Candidate"
+                      variant="brand" onclick="{!c.display}"/>
+    <lightning:spinner aura:id="spn" size="large" class="slds-hide"/>
+    <div style="background:orange">
+              	<force:recordEdit recordId="{!v.candiadateobj.Id}" aura:id="re"/>
+        <div class="slds-align--absolute-center">
+            <lightning:button label="Save" variant="brand" onclick="{!c.save}"/>        
+        </div>
+        </div>
+</aura:component>
