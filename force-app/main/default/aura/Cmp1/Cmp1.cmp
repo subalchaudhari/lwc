@@ -1,8 +1,0 @@
-<aura:component >
-    <aura:attribute name="ename" type="String"/>
-    <div style="background:yellow;height:200px;width:200px">
-        <lightning:input name="n1" label="Emp Name"
-                         value="{!v.ename}"/>
-        <lightning:button label="Send" onclick="{!c.send}"/>
-    </div>
-</aura:component>

@@ -1,7 +1,0 @@
-<aura:component extensible="true" abstract="true">
-    <aura:attribute name="pdata" type="String" default="Parent Info..."/>
-    <div style="font-size:1in;">
-    	{!v.pdata}
-        {!v.body}
-    </div>
-</aura:component>

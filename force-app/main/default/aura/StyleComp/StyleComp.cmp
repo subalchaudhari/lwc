@@ -1,9 +1,0 @@
-<aura:component >
-	<div>
-    
-    Hello Lightning....
-        <div>
-         Hello Apex Developer
-        </div>
-    </div>
-</aura:component>

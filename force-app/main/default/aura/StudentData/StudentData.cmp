@@ -1,5 +1,0 @@
-<aura:component controller="CandidateController" extends="c:Connection">
-	<aura:attribute name="studentlist" type="list"
-                    access="GLOBAL"/>
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-</aura:component>
