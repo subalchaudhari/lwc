@@ -1,7 +1,0 @@
-<apex:page showHeader="false" sidebar="false">
- <apex:pageBlock title="VisualForce">
-    <div style ="font-size:30px;font-style:bold">
-        {!$Organization.name}
-    </div>    
-   </apex:pageBlock>
-</apex:page>
